@@ -1,12 +1,10 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.10)
 project(OOP_MAI)
 set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(googletest)
 
-add_executable(OOP_MAI "test.cpp" "raschet.cpp" "func.h")
-
-add_executable(tests tests.cpp raschet.cpp)
+add_executable(tests tests.cpp)
 
 target_link_libraries(tests PRIVATE GTest::gtest_main)
 
