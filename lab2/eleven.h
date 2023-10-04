@@ -17,6 +17,10 @@ public:
         Eleven(Eleven &&other) noexcept;
         virtual ~Eleven() noexcept;
 
+        ll get_value();
+        string get_stringified();
+        ll get_size();
+
     private:
         ll size;
         unsigned char *num;

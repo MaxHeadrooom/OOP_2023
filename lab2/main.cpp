@@ -12,6 +12,7 @@ int main()
         cin >> s1 >> s2;
 
         Eleven num1 = Eleven(s1);
+        Eleven num2 = Eleven(s2);
     }
     catch(const std::exception& e)
     {

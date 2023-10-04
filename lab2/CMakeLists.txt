@@ -9,7 +9,7 @@ add_subdirectory(googletest)
 
 enable_testing()
 
-add_executable(tests eleven_constr.cpp tests.cpp)
+add_executable(tests eleven_constr.cpp tests.cpp eleven_get.cpp)
 
 target_link_libraries(tests PRIVATE GTest::gtest_main)
 
