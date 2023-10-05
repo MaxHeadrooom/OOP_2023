@@ -2,4 +2,4 @@
 
 # Клоунада
 
-![](https://github.com/MaxHeadrooom/OOP_2023/blob/main/9eaee66a47d7ff85_original.jpg)
+![](https://github.com/MaxHeadrooom/OOP_2023/blob/main/.hidden/joker.jpg)
