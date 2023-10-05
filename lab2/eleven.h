@@ -21,7 +21,20 @@ public:
         string get_stringified();
         ll get_size();
 
+        //baza
+
+        Eleven operator+(const Eleven& other);
+        Eleven operator-(const Eleven& other);
+        Eleven& operator=(const Eleven& other);
+
+        //sravnenie
+
+        bool operator>(const Eleven& other);
+        bool operator<(const Eleven& other);
+        bool operator==(const Eleven& other);
+
     private:
         ll size;
         unsigned char *num;
+        void resize();
 };

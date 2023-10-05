@@ -2,7 +2,7 @@
 
 using namespace std;
 
-ll Eleven::get_value() {return size;}
+ll Eleven::get_value() {return num[0];}
 
 string Eleven::get_stringified() 
 {

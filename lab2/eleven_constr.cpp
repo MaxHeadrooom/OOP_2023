@@ -6,7 +6,7 @@ using namespace std;
 Eleven::Eleven()//baza
 {
     size = 0;
-    num = new unsigned char[0];
+    num = new unsigned char[0]{};
 }
 
 Eleven::Eleven(const ll &n, unsigned char t)//zapolnenie n elmentov znach t
@@ -28,7 +28,7 @@ Eleven::Eleven(const ll &n, unsigned char t)//zapolnenie n elmentov znach t
         num[i] = t;
     }
 }
-
+    
 Eleven::Eleven(const initializer_list<unsigned char> &t)
 {
     size = t.size();
