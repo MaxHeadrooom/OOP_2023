@@ -88,6 +88,13 @@ TEST(test13, sum_normal)
     EXPECT_EQ((num + num2).get_stringified(), "A999");
 }
 
+TEST(test14, sum_normal) 
+{
+    Eleven num = Eleven("11999");
+    Eleven num2 = Eleven("156");
+    EXPECT_EQ((num + num2).get_stringified(), "12044");
+}
+
 // minus
 
 TEST(Operators, minus) 
@@ -107,8 +114,8 @@ TEST(Operators2, minus)
 TEST(Operators3, minus) 
 {
     Eleven num = Eleven("12000");
-    Eleven num2 = Eleven("");
-    EXPECT_EQ((num - num2).get_stringified(), "12000");
+    Eleven num2 = Eleven("156");
+    EXPECT_EQ((num - num2).get_stringified(), "11955");
 }
 
 TEST(Operators4, minus) 

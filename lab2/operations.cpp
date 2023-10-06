@@ -4,6 +4,24 @@ using namespace std;
 
 using ll = long long;
 
+ll bin_pow(ll a, ll n)
+{
+    ll res = 1;
+
+    while (n > 0)
+    {
+        if (n%2==1)
+        {
+            res = res*a;
+        }
+        a=(a*a);
+        n/=2;
+    }
+
+    return res;
+}
+
+
 Eleven Eleven::operator+(const Eleven &other)
 {
     ll maxSize, minSize;
@@ -86,57 +104,45 @@ Eleven Eleven::operator-(const Eleven &other)
 
     Eleven result = Eleven(*this);
 
-    for (size_t i = other.size - 1; i < other.size; i--) 
+    ll chisl_1 = 0, step = 0;
+
+    for (int i = 0; i < other.size; i++)
     {
-        if (num[i] == 'A' and other.num[i] != 'A')
-        {
-            if (other.num[i] != 0)
-                result.num[i] = 10 - other.num[i] + 48;
-            else
-                result.num[i] = num[i];
-        }
-        else
-        {
-            ll fl = 0; //tupo, kogda u menya bilo v 1 ife, prosto pereprigival if, hotya doljen bil bit'
-            if (other.num[i] == 'A')
-                fl++;
-            if (num[i] == 'A')
-                fl++;
-                
-            if (fl == 2)
-                result.num[i] = 48;
-            else
-            {
-                if (other.num[i] == 'A')
-                    result.num[i] = num[i] - 10 + 48;
-                else
-                    result.num[i] = num[i] - other.num[i] + 48;
-            }
-        }
-        if (result.num[i] < 48) 
-        {
-            result.num[i] = 'A';
-
-            ll pos = i + 1;
-
-            while (pos != result.size and result.num[pos] == 48) 
-            {
-                result.num[pos] = 'A';
-                pos += 1;
-            }
-
-            if (pos == result.size)
-                throw invalid_argument("The result of subtraction would be negative");
-
-            --result.num[pos];
-
-            if (pos + 1 == result.size and result.num[pos] == 48)
-            {
-                --result.size;
-                result.resize();
-            }
-        }
+        chisl_1 += ((other.num[i])- 48)*bin_pow(11, step);
+        step++;
     }
+
+    ll chisl_2 = 0;
+
+    step = 0;
+
+    for (int i = 0; i < size; i++)
+    {
+        chisl_2 += ((num[i])- 48)*bin_pow(11, step);
+        step++;
+    }
+
+    ll res = chisl_2 - chisl_1;
+
+    string s = "";
+
+    if (res == 0)
+    {
+        s = "0"; 
+    }
+
+    while (res > 0)
+    {
+        if (res % 11 == 10)
+            s += "A";
+        else
+            s += to_string(res%11);
+        res /= 11;
+    }
+
+    reverse(s.begin(), s.end());
+
+    result = Eleven(s);
 
     return result;
 }
