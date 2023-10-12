@@ -22,7 +22,7 @@ class six_ugl : public Figure
         six_ugl() = default;
 
         six_ugl(const pointer&, const pointer&, const pointer&, const pointer&,
-        const pointer&, const pointer&, const pointer&, const pointer&);
+        const pointer&, const pointer&);
         
         virtual ~six_ugl() = default; 
 };

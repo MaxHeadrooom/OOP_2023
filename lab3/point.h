@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -7,10 +7,11 @@ using ll = long long;
 class pointer 
 {
     private:
-        double pos_x = 0, pos_y = 0;
+        
 
     public:
-        pointer() = default;//net dop peystviy
+        double pos_x = 0, pos_y = 0;
+        pointer() = default;//net dop deystviy
         
         pointer(double, double);
         pointer(const initializer_list<double>&);
