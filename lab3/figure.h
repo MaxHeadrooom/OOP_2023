@@ -1,7 +1,5 @@
-#pragma once
-
 #include <bits/stdc++.h>
-#include <point.h>
+#include "point.h"
 
 using namespace std;
 

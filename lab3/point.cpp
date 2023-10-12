@@ -1,15 +1,15 @@
-#include <point.h>
+#include "point.h"
 #include <bits/stdc++.h>
 
 using namespace std;
 
-point::point(double x, double y)
+pointer::pointer(double x, double y)
 {
     double pos_x = x;
     double pos_y = y;
 }
 
-point::point(const initializer_list<double>& coord) 
+pointer::pointer(const initializer_list<double>& coord) 
 {
     if (coord.size() != 2) 
     {
@@ -20,18 +20,18 @@ point::point(const initializer_list<double>& coord)
     pos_y = *(coord.begin() + 1);
 }
 
-point::point(const point& other)
+pointer::pointer(const pointer& other)
 {
     pos_x = other.pos_x;
     pos_y = other.pos_y;
 }
 
-const double point::get_x()
+const double pointer::get_x()
 {
     return pos_x;
 }
 
-const double point::get_y()
+const double pointer::get_y()
 {
     return pos_y;
 }
