@@ -24,5 +24,19 @@ class six_ugl : public Figure
         six_ugl(const pointer&, const pointer&, const pointer&, const pointer&,
         const pointer&, const pointer&);
         
+        six_ugl(const six_ugl&) noexcept;
+        six_ugl(six_ugl&&) noexcept;
+
+        six_ugl& operator=(const six_ugl&) noexcept;
+        six_ugl& operator=(six_ugl&&) noexcept;
+
+        bool operator==(const six_ugl&);
+
+        virtual double calculate_S();
+        virtual pointer calculate_mid();
+
+        friend istream& operator>>(istream&, six_ugl&);//ya dumal chto i bez frienda doljo rabotat'
+        friend ostream& operator<<(ostream&, six_ugl&);
+
         virtual ~six_ugl() = default; 
 };

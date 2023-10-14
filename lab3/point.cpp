@@ -35,3 +35,15 @@ const double pointer::get_y()
 {
     return pos_y;
 }
+
+istream& operator>>(istream& chten, pointer& point)
+{
+    chten >> point.pos_x >> point.pos_y;
+    return chten;
+}
+
+ostream& operator<<(ostream& vivod, const pointer& point)
+{
+    vivod << point.pos_x << " " << point.pos_y;
+    return vivod;
+}

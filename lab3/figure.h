@@ -10,9 +10,9 @@ class Figure
     public:
         virtual ~Figure() = default;
 
-        virtual double calc_mid() const = 0;
-        virtual double calc__loc_S() const = 0;
-        virtual double calc_pub_S() const = 0;
+        virtual double calculate_mid() const = 0;
+        virtual double calculate_s() const = 0;
+        virtual double calculate_all_S() const = 0;
 
     protected:
         Figure() = default;

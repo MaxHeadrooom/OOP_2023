@@ -20,5 +20,8 @@ class pointer
         const double get_x();
         const double get_y();
 
+        friend istream& operator>>(istream&, pointer&);
+        friend ostream& operator<<(ostream&, const pointer&);
+
         virtual ~pointer() = default;
 };
