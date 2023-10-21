@@ -3,8 +3,8 @@
 
 using namespace std;
 
-six_ugl::six_ugl(const pointer& left_down_dot, const pointer& left_mid_dot, const pointer& left_up_dot,
-const pointer& right_up_dot, const pointer& right_mid_dot, const pointer& right_down_dot)
+six_ugl::six_ugl(const pointer12& left_down_dot, const pointer12& left_mid_dot, const pointer12& left_up_dot,
+const pointer12& right_up_dot, const pointer12& right_mid_dot, const pointer12& right_down_dot)
 {
     this->storona = sqrt((left_down_dot.pos_x - right_down_dot.pos_x)*(left_down_dot.pos_x - right_down_dot.pos_x)
     + (left_down_dot.pos_y - right_down_dot.pos_y) * (left_down_dot.pos_y - right_down_dot.pos_y));
@@ -82,9 +82,9 @@ double six_ugl::calculate_S()
     return 3*sqrt(3)*storona*storona/2;
 }
 
-pointer six_ugl::calculate_mid()
+pointer12 six_ugl::calculate_mid()
 {
-    pointer geom_mid((left_up_dot.pos_x + right_up_dot.pos_x +
+    pointer12 geom_mid((left_up_dot.pos_x + right_up_dot.pos_x +
     left_mid_dot.pos_x + right_mid_dot.pos_x + left_down_dot.pos_x + right_down_dot.pos_x)/6 ,
     (left_up_dot.pos_y + right_up_dot.pos_y + left_mid_dot.pos_y + right_mid_dot.pos_y +
     left_down_dot.pos_y + right_down_dot.pos_y)/6);

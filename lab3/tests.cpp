@@ -8,7 +8,7 @@
 
 TEST(calc_s, test_1) 
 {
-    triangle test1 (pointer(0, 0), pointer(10, 0), pointer(5, 5*sqrt(3)));
+    triangle test1 (pointer12(0, 0), pointer12(10, 0), pointer12(5, 5*sqrt(3)));
 
     EXPECT_DOUBLE_EQ(test1.calculate_s(), 25*sqrt(3));
 }

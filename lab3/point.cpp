@@ -3,13 +3,13 @@
 
 using namespace std;
 
-pointer::pointer(double x, double y)
+pointer12::pointer12(double x, double y)
 {
     double pos_x = x;
     double pos_y = y;
 }
 
-pointer::pointer(const initializer_list<double>& coord) 
+pointer12::pointer12(const initializer_list<double>& coord) 
 {
     if (coord.size() != 2) 
     {
@@ -20,34 +20,34 @@ pointer::pointer(const initializer_list<double>& coord)
     pos_y = *(coord.begin() + 1);
 }
 
-pointer::pointer(const pointer& other)
+pointer12::pointer12(const pointer12& other)
 {
     pos_x = other.pos_x;
     pos_y = other.pos_y;
 }
 
-const double pointer::get_x()
+const double pointer12::get_x()
 {
     return pos_x;
 }
 
-const double pointer::get_y()
+const double pointer12::get_y()
 {
     return pos_y;
 }
 
-bool pointer::operator==(const pointer& other)
+bool pointer12::operator==(const pointer12& other)
 {
     return (this->pos_x == other.pos_x and this->pos_y == other.pos_y);
 }
 
-istream& operator>>(istream& chten, pointer& point)
+istream& operator>>(istream& chten, pointer12& point)
 {
     chten >> point.pos_x >> point.pos_y;
     return chten;
 }
 
-ostream& operator<<(ostream& vivod, const pointer& point)
+ostream& operator<<(ostream& vivod, const pointer12& point)
 {
     vivod << point.pos_x << " " << point.pos_y;
     return vivod;

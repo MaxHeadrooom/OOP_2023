@@ -3,7 +3,7 @@
 
 using namespace std;
 
-triangle::triangle(const pointer& left_dot, const pointer& mid_dot, const pointer& right_dot)
+triangle::triangle(const pointer12& left_dot, const pointer12& mid_dot, const pointer12& right_dot)
 {
     this->storona = sqrt((left_dot.pos_x - right_dot.pos_x)*(left_dot.pos_x - right_dot.pos_x) + 
     (left_dot.pos_y - right_dot.pos_y)*(left_dot.pos_y - right_dot.pos_y));
@@ -63,14 +63,14 @@ bool triangle::operator==(const triangle& other)
     return false;
 }
 
-double triangle::calculate_S()
+double triangle::calculate_s() const
 {
     return (storona*storona*sqrt(3)/4);
 }
 
-pointer triangle::calculate_mid()
+pointer12 triangle::calculate_mid() const
 {
-    pointer geom_mid((left_dot.pos_x + mid_dot.pos_x + right_dot.pos_x)/3,
+    pointer12 geom_mid((left_dot.pos_x + mid_dot.pos_x + right_dot.pos_x)/3,
     (left_dot.pos_y + mid_dot.pos_y + right_dot.pos_y)/3);
 
     return geom_mid;

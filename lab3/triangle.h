@@ -9,16 +9,16 @@ class triangle : public Figure
 {
     //vtoraya cartinka v poiske nachinaem s levogo nijnego i protiv chasovoy
     private:
-        pointer left_dot;
-        pointer mid_dot;
-        pointer right_dot;
+        pointer12 left_dot;
+        pointer12 mid_dot;
+        pointer12 right_dot;
 
         double storona;
         
     public:
         triangle() = default;
 
-        triangle(const pointer&, const pointer&, const pointer&);
+        triangle(const pointer12&, const pointer12&, const pointer12&);
         
         triangle(const triangle&) noexcept;
         triangle(triangle&&) noexcept;
@@ -28,8 +28,8 @@ class triangle : public Figure
 
         bool operator==(const triangle&);
 
-        virtual double calculate_S();
-        virtual pointer calculate_mid();
+        virtual double calculate_s() const;
+        virtual pointer12 calculate_mid() const;
 
         friend istream& operator>>(istream&, triangle&);//ya dumal chto i bez frienda doljo rabotat'
         friend ostream& operator<<(ostream& vivod, const triangle& sixxx_ugl);
