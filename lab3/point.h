@@ -7,7 +7,6 @@ using ll = long long;
 class pointer 
 {
     private:
-        
 
     public:
         double pos_x = 0, pos_y = 0;
@@ -19,6 +18,8 @@ class pointer
 
         const double get_x();
         const double get_y();
+
+        bool operator==(const pointer& other);
 
         friend istream& operator>>(istream&, pointer&);
         friend ostream& operator<<(ostream&, const pointer&);

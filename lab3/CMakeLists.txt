@@ -13,14 +13,18 @@ add_executable(
     main 
     main.cpp
     point.cpp 
-    six_ugl.cpp 
+    six_ugl.cpp
+    eight_ugl.cpp
+    triangle.cpp 
 )
 
 add_executable(
     tests
     tests.cpp
     point.cpp 
-    six_ugl.cpp 
+    six_ugl.cpp
+    eight_ugl.cpp
+    triangle.cpp  
 )
 
 target_link_libraries(tests PRIVATE GTest::gtest_main)

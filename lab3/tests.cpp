@@ -1,8 +1,16 @@
 #include <gtest/gtest.h>
+#include <bits/stdc++.h>
+#include "six_ugl.h"
+#include "eight_ugl.h"
+#include "triangle.h"
 
-TEST(test1, gicha)
+//triangle
+
+TEST(calc_s, test_1) 
 {
-    EXPECT_EQ("1", "1");
+    triangle test1 (pointer(0, 0), pointer(10, 0), pointer(5, 5*sqrt(3)));
+
+    EXPECT_DOUBLE_EQ(test1.calculate_s(), 25*sqrt(3));
 }
 
 int main(int argc, char **argv)

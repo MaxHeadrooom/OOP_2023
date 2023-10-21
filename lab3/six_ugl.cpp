@@ -6,8 +6,8 @@ using namespace std;
 six_ugl::six_ugl(const pointer& left_down_dot, const pointer& left_mid_dot, const pointer& left_up_dot,
 const pointer& right_up_dot, const pointer& right_mid_dot, const pointer& right_down_dot)
 {
-    this->storona = sqrt((left_up_dot.pos_x - right_up_dot.pos_x)*(left_up_dot.pos_x - right_up_dot.pos_x)
-    + (left_up_dot.pos_y - right_up_dot.pos_y) * (left_up_dot.pos_y - right_up_dot.pos_y));
+    this->storona = sqrt((left_down_dot.pos_x - right_down_dot.pos_x)*(left_down_dot.pos_x - right_down_dot.pos_x)
+    + (left_down_dot.pos_y - right_down_dot.pos_y) * (left_down_dot.pos_y - right_down_dot.pos_y));
 
     if (storona <= 0)
         throw invalid_argument("It's not a six_ugl");
@@ -71,8 +71,8 @@ six_ugl& six_ugl::operator=(six_ugl&& other) noexcept
 bool six_ugl::operator==(const six_ugl& other)
 {
     if (this->left_down_dot == other.left_down_dot and this->left_mid_dot == other.left_mid_dot and
-    this->left_up_dot == other.left_up_dot and this->right_down_dot == other.right_down_dot and
-    this->right_down_dot == other.right_down_dot and this->right_down_dot == other.right_down_dot)
+    this->left_up_dot == other.left_up_dot and this->right_up_dot == other.right_up_dot and
+    this->right_mid_dot == other.right_mid_dot and this->right_down_dot == other.right_down_dot)
         return true;
     return false;
 }
@@ -100,10 +100,10 @@ istream& operator>>(istream& chten, six_ugl& sixxx_ugl)
     return chten;
 }
 
-ostream& operator<<(istream& vivod, const six_ugl& sixxx_ugl)
+ostream& operator<<(ostream& vivod, const six_ugl& sixxx_ugl)
 {
-    vivod << sixxx_ugl.left_down_dot << sixxx_ugl.left_mid_dot << sixxx_ugl.left_up_dot <<
-    sixxx_ugl.right_down_dot << sixxx_ugl.right_mid_dot << sixxx_ugl.right_up_dot; 
+    vivod << sixxx_ugl.left_down_dot << " " << sixxx_ugl.left_mid_dot << " " <<sixxx_ugl.left_up_dot <<
+    " " << sixxx_ugl.right_down_dot << " " << sixxx_ugl.right_mid_dot << " " << sixxx_ugl.right_up_dot; 
 
     return vivod;
 }

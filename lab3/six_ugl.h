@@ -7,6 +7,8 @@ using namespace std;
 
 class six_ugl : public Figure
 {
+    
+
     //vtoraya cartinka v poiske nachinaem s levogo nijnego i protiv chasovoy
     private:
         pointer left_mid_dot;
@@ -36,7 +38,7 @@ class six_ugl : public Figure
         virtual pointer calculate_mid();
 
         friend istream& operator>>(istream&, six_ugl&);//ya dumal chto i bez frienda doljo rabotat'
-        friend ostream& operator<<(ostream&, six_ugl&);
+        friend ostream& operator<<(ostream& vivod, const six_ugl& sixxx_ugl);
 
         virtual ~six_ugl() = default; 
 };

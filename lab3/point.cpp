@@ -36,6 +36,11 @@ const double pointer::get_y()
     return pos_y;
 }
 
+bool pointer::operator==(const pointer& other)
+{
+    return (this->pos_x == other.pos_x and this->pos_y == other.pos_y);
+}
+
 istream& operator>>(istream& chten, pointer& point)
 {
     chten >> point.pos_x >> point.pos_y;
