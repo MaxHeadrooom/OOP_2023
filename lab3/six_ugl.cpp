@@ -3,30 +3,11 @@
 
 using namespace std;
 
-six_ugl::six_ugl()
-{
-    this->right_down_dot.pos_x = 0;
-    this->right_down_dot.pos_y = 0;
-    this->right_mid_dot.pos_x = 0;
-    this->right_mid_dot.pos_y = 0;
-    this->right_up_dot.pos_x = 0;
-    this->right_up_dot.pos_y = 0;
-
-    this->left_down_dot.pos_x = 0;
-    this->left_down_dot.pos_y = 0;
-    this->left_mid_dot.pos_x = 0;
-    this->left_mid_dot.pos_y = 0;
-    this->left_up_dot.pos_x = 0;
-    this->left_up_dot.pos_y = 0;
-
-    this->storona = 0;
-}
-
 six_ugl::six_ugl(const pointer12& left_down_dot, const pointer12& left_mid_dot, const pointer12& left_up_dot,
 const pointer12& right_up_dot, const pointer12& right_mid_dot, const pointer12& right_down_dot)
 {
-    this->storona = sqrt((left_down_dot.pos_x - right_down_dot.pos_x)*(left_down_dot.pos_x - right_down_dot.pos_x)
-    + (left_down_dot.pos_y - right_down_dot.pos_y) * (left_down_dot.pos_y - right_down_dot.pos_y));
+    this->storona = sqrt((left_down_dot.pos_x - left_mid_dot.pos_x)*(left_down_dot.pos_x - left_mid_dot.pos_x)
+    + (left_down_dot.pos_y - left_mid_dot.pos_y) * (left_down_dot.pos_y - left_mid_dot.pos_y));
 
     if (storona <= 0)
         throw invalid_argument("It's not a six_ugl");
@@ -96,12 +77,12 @@ bool six_ugl::operator==(const six_ugl& other)
     return false;
 }
 
-double six_ugl::calculate_S()
+double six_ugl::calculate_s() const
 {
     return 3*sqrt(3)*storona*storona/2;
 }
 
-pointer12 six_ugl::calculate_mid()
+pointer12 six_ugl::calculate_mid() const
 {
     pointer12 geom_mid((left_up_dot.pos_x + right_up_dot.pos_x +
     left_mid_dot.pos_x + right_mid_dot.pos_x + left_down_dot.pos_x + right_down_dot.pos_x)/6 ,

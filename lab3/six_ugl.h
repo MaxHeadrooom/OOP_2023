@@ -7,8 +7,6 @@ using namespace std;
 
 class six_ugl : public Figure
 {
-    
-
     //vtoraya cartinka v poiske nachinaem s levogo nijnego i protiv chasovoy
     private:
         pointer12 left_mid_dot;
@@ -21,7 +19,7 @@ class six_ugl : public Figure
         double storona;
         
     public:
-        six_ugl();
+        six_ugl() = default;
 
         six_ugl(const pointer12&, const pointer12&, const pointer12&, const pointer12&,
         const pointer12&, const pointer12&);
@@ -34,8 +32,8 @@ class six_ugl : public Figure
 
         bool operator==(const six_ugl&);
 
-        virtual double calculate_S();
-        virtual pointer12 calculate_mid();
+        virtual double calculate_s() const;
+        virtual pointer12 calculate_mid() const;
 
         friend istream& operator>>(istream&, six_ugl&);//ya dumal chto i bez frienda doljo rabotat'
         friend ostream& operator<<(ostream& vivod, const six_ugl& sixxx_ugl);

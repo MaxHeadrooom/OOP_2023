@@ -3,18 +3,6 @@
 
 using namespace std;
 
-triangle::triangle()
-{
-    this->left_dot.pos_x = 0;
-    this->left_dot.pos_y = 0;
-    this->mid_dot.pos_x = 0;
-    this->mid_dot.pos_y = 0;
-    this->right_dot.pos_x = 0;
-    this->right_dot.pos_y = 0;
-
-    this->storona = 0;
-}
-
 triangle::triangle(const pointer12& left_dot, const pointer12& mid_dot, const pointer12& right_dot)
 {
     this->storona = sqrt((left_dot.pos_x - right_dot.pos_x)*(left_dot.pos_x - right_dot.pos_x) + 

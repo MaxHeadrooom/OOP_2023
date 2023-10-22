@@ -5,16 +5,10 @@
 
 using namespace std;
 
-pointer12::pointer12()
-{
-    this->pos_x = 0;
-    this->pos_y = 0;
-}
-
 pointer12::pointer12(double x, double y)
 {
-    double pos_x = x;
-    double pos_y = y;
+    this->pos_x = x;
+    this->pos_y = y;
 }
 
 pointer12::pointer12(const initializer_list<double>& coord) 
@@ -24,14 +18,14 @@ pointer12::pointer12(const initializer_list<double>& coord)
         throw invalid_argument("Only 2 arguments");
     }
 
-    pos_x = *(coord.begin());
-    pos_y = *(coord.begin() + 1);
+    this->pos_x = *(coord.begin());
+    this->pos_y = *(coord.begin() + 1);
 }
 
 pointer12::pointer12(const pointer12& other)
 {
-    pos_x = other.pos_x;
-    pos_y = other.pos_y;
+    this->pos_x = other.pos_x;
+    this->pos_y = other.pos_y;
 }
 
 const double pointer12::get_x()

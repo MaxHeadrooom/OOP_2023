@@ -14,9 +14,9 @@ class triangle : public Figure
         pointer12 right_dot;
 
         double storona;
-        
+
     public:
-        triangle();
+        triangle() = default;
 
         triangle(const pointer12&, const pointer12&, const pointer12&);
         

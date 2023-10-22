@@ -20,7 +20,7 @@ class eight_ugl : public Figure
         double storona;
         
     public:
-        eight_ugl();
+        eight_ugl() = default;
 
         eight_ugl(const pointer12&, const pointer12&, const pointer12&, const pointer12&, const pointer12&,
         const pointer12&, const pointer12&, const pointer12&);
@@ -33,8 +33,8 @@ class eight_ugl : public Figure
 
         bool operator==(const eight_ugl&);
 
-        virtual double calculate_S();
-        virtual pointer12 calculate_mid();
+        virtual double calculate_s() const;
+        virtual pointer12 calculate_mid() const;
 
         friend istream& operator>>(istream&, eight_ugl&);//ya dumal chto i bez frienda doljo rabotat'
         friend ostream& operator<<(ostream& vivod, const eight_ugl& eighttt_ugl);

@@ -11,7 +11,7 @@ class pointer12
 
     public:
         double pos_x = 0, pos_y = 0;
-        pointer12();
+        pointer12() = default;
         
         pointer12(double, double);
         pointer12(const initializer_list<double>&);

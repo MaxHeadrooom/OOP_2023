@@ -16,6 +16,7 @@ add_executable(
     six_ugl.cpp
     eight_ugl.cpp
     triangle.cpp 
+    array.cpp
 )
 
 add_executable(
@@ -24,7 +25,8 @@ add_executable(
     point.cpp 
     six_ugl.cpp
     eight_ugl.cpp
-    triangle.cpp  
+    triangle.cpp 
+    array.cpp 
 )
 
 target_link_libraries(tests PRIVATE GTest::gtest_main)
