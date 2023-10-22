@@ -23,9 +23,9 @@
 
 Вариант 23, фигуры: 6-угольник, 8-угольник, Треугольник
 
-## Программы
+# Программы
 
-### CMakeLists.txt
+# CMakeLists.txt
 ```
 cmake_minimum_required(VERSION 3.10)
 
