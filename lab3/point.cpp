@@ -5,6 +5,12 @@
 
 using namespace std;
 
+pointer12::pointer12()
+{
+    this->pos_x = 0;
+    this->pos_y = 0;
+}
+
 pointer12::pointer12(double x, double y)
 {
     double pos_x = x;

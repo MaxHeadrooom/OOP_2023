@@ -20,7 +20,7 @@ class eight_ugl : public Figure
         double storona;
         
     public:
-        eight_ugl() = default;
+        eight_ugl();
 
         eight_ugl(const pointer12&, const pointer12&, const pointer12&, const pointer12&, const pointer12&,
         const pointer12&, const pointer12&, const pointer12&);

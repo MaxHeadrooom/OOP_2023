@@ -1,9 +1,26 @@
-#pragma once
-
 #include "six_ugl.h"
 #include <bits/stdc++.h>
 
 using namespace std;
+
+six_ugl::six_ugl()
+{
+    this->right_down_dot.pos_x = 0;
+    this->right_down_dot.pos_y = 0;
+    this->right_mid_dot.pos_x = 0;
+    this->right_mid_dot.pos_y = 0;
+    this->right_up_dot.pos_x = 0;
+    this->right_up_dot.pos_y = 0;
+
+    this->left_down_dot.pos_x = 0;
+    this->left_down_dot.pos_y = 0;
+    this->left_mid_dot.pos_x = 0;
+    this->left_mid_dot.pos_y = 0;
+    this->left_up_dot.pos_x = 0;
+    this->left_up_dot.pos_y = 0;
+
+    this->storona = 0;
+}
 
 six_ugl::six_ugl(const pointer12& left_down_dot, const pointer12& left_mid_dot, const pointer12& left_up_dot,
 const pointer12& right_up_dot, const pointer12& right_mid_dot, const pointer12& right_down_dot)

@@ -3,6 +3,29 @@
 
 using namespace std;
 
+eight_ugl::eight_ugl()
+{
+    this->left_down_dot.pos_x = 0;
+    this->left_down_dot.pos_y = 0;
+    this->left_mid_down_dot.pos_x = 0;
+    this->left_mid_down_dot.pos_y = 0;
+    this->left_mid_up_dot.pos_x = 0;
+    this->left_mid_up_dot.pos_y = 0;
+    this->left_up_dot.pos_x = 0;
+    this->left_up_dot.pos_y = 0;
+
+    this->right_down_dot.pos_x = 0;
+    this->right_down_dot.pos_y = 0;
+    this->right_mid_down_dot.pos_x = 0;
+    this->right_mid_down_dot.pos_y = 0;
+    this->right_mid_up_dot.pos_x = 0;
+    this->right_mid_up_dot.pos_y = 0;
+    this->right_up_dot.pos_x = 0;
+    this->right_up_dot.pos_y = 0;
+
+    this-> storona = 0;
+}
+
 eight_ugl::eight_ugl(const pointer12& left_down_dot, const pointer12& left_mid_down_dot, const pointer12&
 left_mid_up_dot, const pointer12& left_up_dot, const pointer12& right_up_dot, const pointer12& right_mid_up_dot,
 const pointer12& right_mid_down_dot, const pointer12& right_down_dot)

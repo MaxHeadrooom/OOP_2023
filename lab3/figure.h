@@ -9,6 +9,7 @@ using ll = long long;
 class Figure
 {
     public:
+        Figure() = default;
         virtual ~Figure() = default;
 
         virtual pointer12 calculate_mid() const = 0;
@@ -16,5 +17,5 @@ class Figure
         //virtual double calculate_all_S() const = 0;
 
     protected:
-        Figure() = default;
+        
 };

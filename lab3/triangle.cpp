@@ -1,9 +1,19 @@
-#pragma once
 #include "triangle.h"
 #include <bits/stdc++.h>
 
-
 using namespace std;
+
+triangle::triangle()
+{
+    this->left_dot.pos_x = 0;
+    this->left_dot.pos_y = 0;
+    this->mid_dot.pos_x = 0;
+    this->mid_dot.pos_y = 0;
+    this->right_dot.pos_x = 0;
+    this->right_dot.pos_y = 0;
+
+    this->storona = 0;
+}
 
 triangle::triangle(const pointer12& left_dot, const pointer12& mid_dot, const pointer12& right_dot)
 {
@@ -80,7 +90,10 @@ pointer12 triangle::calculate_mid() const
 
 istream& operator>>(istream& chten, triangle& tria)
 {
-    chten >> tria.left_dot >> tria.mid_dot >> tria.right_dot;
+    pointer12 left_dot, mid_dot, right_dot;
+    chten >> left_dot >> mid_dot >> right_dot;
+
+    tria = triangle(left_dot, mid_dot, right_dot);
 
     return chten;
 }
