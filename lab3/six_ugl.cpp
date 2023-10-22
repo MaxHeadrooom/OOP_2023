@@ -1,3 +1,5 @@
+#pragma once
+
 #include "six_ugl.h"
 #include <bits/stdc++.h>
 

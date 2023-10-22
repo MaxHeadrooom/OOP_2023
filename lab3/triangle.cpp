@@ -1,5 +1,7 @@
+#pragma once
 #include "triangle.h"
 #include <bits/stdc++.h>
+
 
 using namespace std;
 

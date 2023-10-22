@@ -1,4 +1,3 @@
-#pragma once
 
 #include "figure.h"
 #include <bits/stdc++.h>

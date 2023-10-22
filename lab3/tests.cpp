@@ -4,6 +4,7 @@
 #include "eight_ugl.h"
 #include "triangle.h"
 
+
 //triangle
 
 TEST(calc_s, test_1) 
