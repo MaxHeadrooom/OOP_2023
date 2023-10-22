@@ -25,7 +25,7 @@
 
 ## Программы
 
-### main.cpp
+### CMakeLists.txt
 ```
 cmake_minimum_required(VERSION 3.10)
 
@@ -63,7 +63,7 @@ target_link_libraries(tests PRIVATE GTest::gtest_main)
 include(GoogleTest)
 gtest_discover_tests(tests)
 ```
-#main.cpp
+# main.cpp
 ```
 #include <bits/stdc++.h>
 #include "figure.h"
@@ -81,7 +81,7 @@ int main()
     }
 }
 ```
-#point.h
+# point.h
 ```
 #include <bits/stdc++.h>
 #pragma once
@@ -113,7 +113,7 @@ class pointer12
         virtual ~pointer12() = default;
 };
 ```
-#point.cpp
+# point.cpp
 ```
 #pragma once
 
@@ -172,7 +172,7 @@ ostream& operator<<(ostream& vivod, const pointer12& point)
     return vivod;
 }
 ```
-#figure.h
+# figure.h
 ```
 #include <bits/stdc++.h>
 #include "point.h"
@@ -196,7 +196,7 @@ class Figure
 
 };
 ```
-#array.h
+# array.h
 ```
 #include <bits/stdc++.h>
 #include "figure.h"
@@ -223,7 +223,7 @@ class arrayy
         double calc_all_s();
 };
 ```
-#array.cpp
+# array.cpp
 ```
 #include <bits/stdc++.h>
 #include "array.h"
@@ -299,7 +299,7 @@ double arrayy::calc_all_s()
     }
 }
 ```
-#triangle.h
+# triangle.h
 ```
 #pragma once
 
@@ -340,7 +340,7 @@ class triangle : public Figure
         virtual ~triangle() = default; 
 };
 ```
-#triangle.cpp
+# triangle.cpp
 ```
 #include "triangle.h"
 #include <bits/stdc++.h>
@@ -437,7 +437,7 @@ ostream& operator<<(ostream& vivod, const triangle& tria)
     return vivod;
 }
 ```
-#six_ugl.h
+# six_ugl.h
 ```
 #pragma once
 
@@ -482,7 +482,7 @@ class six_ugl : public Figure
         virtual ~six_ugl() = default; 
 };
 ```
-#six_ugl.cpp
+# six_ugl.cpp
 ```
 #include "six_ugl.h"
 #include <bits/stdc++.h>
@@ -594,7 +594,7 @@ ostream& operator<<(ostream& vivod, const six_ugl& sixxx_ugl)
     return vivod;
 }
 ```
-#eight_ugl.h
+# eight_ugl.h
 ```
 
 #include "figure.h"
@@ -640,7 +640,7 @@ class eight_ugl : public Figure
         virtual ~eight_ugl() = default; 
 };
 ```
-#eight_ugl.cpp
+# eight_ugl.cpp
 ```
 #include "eight_ugl.h"
 #include <bits/stdc++.h>
@@ -770,7 +770,7 @@ ostream& operator<<(ostream& vivod, const eight_ugl& eighttt_ugl)
     return vivod;
 }
 ```
-#tests.cpp
+# tests.cpp
 ```
 #include <gtest/gtest.h>
 #include <bits/stdc++.h>
