@@ -17,5 +17,4 @@ class Figure
         //virtual double calculate_all_s() const = 0;
 
     protected:
-
 };

@@ -107,3 +107,8 @@ ostream& operator<<(ostream& vivod, const six_ugl& sixxx_ugl)
 
     return vivod;
 }
+
+six_ugl::~six_ugl()
+{
+    storona = 0;
+}

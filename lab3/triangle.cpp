@@ -92,3 +92,8 @@ ostream& operator<<(ostream& vivod, const triangle& tria)
 
     return vivod;
 }
+
+triangle::~triangle()
+{
+    storona = 0;
+}

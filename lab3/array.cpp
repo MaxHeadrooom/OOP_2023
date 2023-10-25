@@ -71,3 +71,13 @@ double arrayy::calc_all_s()
         }
     }
 }
+
+arrayy::~arrayy()
+{
+    for (int i = 0; i < size; i++)
+    {
+        delete figuri[i];
+    }
+    delete[] figuri;
+    size = 0;
+}

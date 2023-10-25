@@ -125,3 +125,8 @@ ostream& operator<<(ostream& vivod, const eight_ugl& eighttt_ugl)
 
     return vivod;
 }
+
+eight_ugl::~eight_ugl()
+{
+    storona = 0;
+}

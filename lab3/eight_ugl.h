@@ -39,5 +39,5 @@ class eight_ugl : public Figure
         friend istream& operator>>(istream&, eight_ugl&);//ya dumal chto i bez frienda doljo rabotat'
         friend ostream& operator<<(ostream& vivod, const eight_ugl& eighttt_ugl);
 
-        virtual ~eight_ugl() = default; 
+        virtual ~eight_ugl(); 
 };

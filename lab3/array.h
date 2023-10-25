@@ -14,7 +14,7 @@ class arrayy
     public:
         arrayy();
         arrayy(ll size);
-        virtual ~arrayy() = default;
+        virtual ~arrayy();// perepisat' utechku !!!
 
         Figure* operator[](ll pos); // obrasch k elem
 

@@ -34,5 +34,5 @@ class triangle : public Figure
         friend istream& operator>>(istream&, triangle&);//ya dumal chto i bez frienda doljo rabotat'
         friend ostream& operator<<(ostream& vivod, const triangle& sixxx_ugl);
 
-        virtual ~triangle() = default; 
+        virtual ~triangle(); 
 };
