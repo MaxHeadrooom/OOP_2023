@@ -14,7 +14,8 @@ class List
         };
 
     using Alloc_traits = std::allocator_traits<Alloc>;
-    using NodeAllocator = typename Alloc_traits::template rebind_alloc<Node>;
+    using NodeAllocator = typename Alloc_traits::rebind_alloc<Node>;
+    using Alloc_Item_traits = std::allocator_traits<NodeAllocator>;
 
     Node* head;
     int size;
@@ -79,19 +80,19 @@ class List
             {
                 Node* temp = head;
                 head = head->next;
-                
-                Alloc_traits::destroy(allocator, temp->data);
-                Alloc_traits::deallocate(allocator, temp->data, 1);
+
+                // Destroy the data and deallocate the node
+                Alloc_Item_traits::destroy(allocator, &(temp->data));
+                Alloc_Item_traits::deallocate(allocator, temp, 1);
             }
             size = 0;
         }
 
-
         void push(const T& value)
         {
             //alloc for 1 element
-            Node* newNode = Alloc_traits::allocate(allocator, 1);
-            Alloc_traits::construct(allocator, newNode, value);
+            Node* newNode = Alloc_Item_traits::allocate(allocator, 1);
+            Alloc_Item_traits::construct(allocator, newNode, value);
 
             newNode->next = head;
             head = newNode;
@@ -100,16 +101,18 @@ class List
 
         void pop()
         {
-            size--;
-            Node* temp = head;
-            head = head->next;
+            if (head) 
+            {
+                size--;
+                Node* temp = head;
+                head = head->next;
 
-            // Деструктор для элемента данных
-            Alloc_traits::destroy(allocator, &(temp->data));
-            // Деаллокация узла
-            Alloc_traits::deallocate(allocator, temp, 1);
+                // Deallocate the node before destroying the data
+                Alloc_Item_traits::deallocate(allocator, temp, 1);
+                // Destroy the data after deallocation
+                Alloc_Item_traits::destroy(allocator, &(temp->data));
+            }
         }
-
 
         int getsize() const
         {
