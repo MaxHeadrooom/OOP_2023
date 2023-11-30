@@ -86,3 +86,14 @@ TEST(List, test4)
     
     EXPECT_EQ(l.end(), nullptr);
 }
+
+
+TEST(List, test5)
+{
+    List<int> l;
+    l.push(66);
+    l.push(78);
+    l.push(90);
+    
+    EXPECT_EQ(l.getsize(), 3);
+}
