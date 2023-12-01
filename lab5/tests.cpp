@@ -97,3 +97,31 @@ TEST(List, test5)
     
     EXPECT_EQ(l.getsize(), 3);
 }
+
+TEST(List, test6)
+{
+    List<int> l;
+    l.push(1);
+    l.push(2);
+    l.push(3);
+
+    int val = 3;
+    for (List<int>::ConstIterator it = l.begin(); it != l.end(); ++it) 
+    {
+        EXPECT_EQ(*it, val);
+        val--;
+    }
+}
+
+
+TEST(List, test7)
+{
+    List<int> l;
+    l.push(1);
+    l.push(2);
+
+    List<int>::ConstIterator it1 = l.begin();
+    List<int>::ConstIterator it2 = l.begin();
+
+    EXPECT_EQ(it1, it2);
+}
