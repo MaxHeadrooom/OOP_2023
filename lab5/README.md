@@ -132,42 +132,42 @@ constexpr bool operator!=(const Allocator<T>& lhs, const Allocator<U>& rhs)
 #include <memory>
 
 template <class T, class Alloc = std::allocator<T>>
-class List
+class List 
 {
     private:
-        struct Node
+        struct Node 
         {
             T data;
             Node* next;
 
             explicit Node(const T& value) : data(value), next(nullptr) {}
-            // чтобы не было ситуаций когда Node<int> = 42; мне надо только Node<int> node(42);
         };
 
-    using Alloc_traits = std::allocator_traits<Alloc>;
-    using NodeAllocator = typename Alloc_traits::rebind_alloc<Node>;
-    using Alloc_Item_traits = std::allocator_traits<NodeAllocator>;
+        using Alloc_traits = std::allocator_traits<Alloc>;
+        using NodeAllocator = typename Alloc_traits::rebind_alloc<Node>;
+        using Alloc_Item_traits = std::allocator_traits<NodeAllocator>;
 
-    Node* head;
-    int size;
-    NodeAllocator allocator;
+        Node* head;
+        int size;
+        NodeAllocator allocator;
 
-    class Iterator
+    public:
+    class Iterator 
     {
         private:
             friend List;
             Node* current;
 
         public:
-            using value_type = T; //data
-            using pointer = T*; // * on current
-            using reference = T&; // & on elements
-            using difference_type = std::ptrdiff_t; // diff between next and last
+            using value_type = T;
+            using pointer = T*;
+            using reference = T&;
+            using difference_type = std::ptrdiff_t;
             using iterator_category = std::forward_iterator_tag;
 
             Iterator(Node* node) : current(node) {}
 
-            reference operator*() const
+            reference operator*() const 
             {
                 return current->data;
             }
@@ -190,76 +190,131 @@ class List
                 return temp;
             }
 
-            bool operator==(const Iterator& other) const
+            bool operator==(const Iterator& other) const 
             {
                 return this->current == other.current;
             }
 
-            bool operator!=(const Iterator& other) const
+            bool operator!=(const Iterator& other) const 
             {
                 return this->current != other.current;
             }
     };
 
-    public:
+    class ConstIterator 
+    {
+        private:
+            friend List;
+            const Node* current;
 
-        List(): head(nullptr), size(0) {}
+        public:
+            using value_type = T;
+            using pointer = const T*;
+            using reference = const T&;
+            using difference_type = std::ptrdiff_t;
+            using iterator_category = std::forward_iterator_tag;
 
-        ~List()
-        {
-            while (head) 
+            ConstIterator(const Node* node) : current(node) {}
+
+            ConstIterator(const Iterator& it) : current(it.current) {}
+            
+            reference operator*() const 
             {
-                Node* temp = head;
-                head = head->next;
-
-                // Destroy the data and deallocate the node
-                Alloc_Item_traits::destroy(allocator, &(temp->data));
-                Alloc_Item_traits::deallocate(allocator, temp, 1);
+                return current->data;
             }
-            size = 0;
-        }
 
-        void push(const T& value)
-        {
-            //alloc for 1 element
-            Node* newNode = Alloc_Item_traits::allocate(allocator, 1);
-            Alloc_Item_traits::construct(allocator, newNode, value);
-
-            newNode->next = head;
-            head = newNode;
-            size++;
-        }
-
-        void pop()
-        {
-            if (head) 
+            pointer operator->() const 
             {
-                size--;
-                Node* temp = head;
-                head = head->next;
-
-                // Deallocate the node before destroying the data
-                Alloc_Item_traits::deallocate(allocator, temp, 1);
-                // Destroy the data after deallocation
-                Alloc_Item_traits::destroy(allocator, &(temp->data));
+                return &(current->data);
             }
-        }
 
-        int getsize() const
-        {
-            return size;
-        }
+            ConstIterator& operator++() 
+            {
+                current = current->next;
+                return *this;
+            }
 
-        Iterator begin()
-        {
-            return Iterator(head);
-        }
+            ConstIterator operator++(int) 
+            {
+                ConstIterator temp = *this;
+                current = current->next;
+                return temp;
+            }
 
-        Iterator end()
+            bool operator==(const ConstIterator& other) const 
+            {
+                return this->current == other.current;
+            }
+
+            bool operator!=(const ConstIterator& other) const 
+            {
+                return this->current != other.current;
+            }
+    };
+
+    List() : head(nullptr), size(0) {}
+
+    ~List() {
+        while (head) 
         {
-            return Iterator(nullptr);
+            Node* temp = head;
+            head = head->next;
+
+            Alloc_Item_traits::destroy(allocator, &(temp->data));
+            Alloc_Item_traits::deallocate(allocator, temp, 1);
         }
+        size = 0;
+    }
+
+    void push(const T& value) 
+    {
+        Node* newNode = Alloc_Item_traits::allocate(allocator, 1);
+        Alloc_Item_traits::construct(allocator, newNode, value);
+
+        newNode->next = head;
+        head = newNode;
+        size++;
+    }
+
+    void pop() 
+    {
+        if (head) 
+        {
+            size--;
+            Node* temp = head;
+            head = head->next;
+
+            Alloc_Item_traits::deallocate(allocator, temp, 1);
+            Alloc_Item_traits::destroy(allocator, &(temp->data));
+        }
+    }
+
+    int getsize() const 
+    {
+        return size;
+    }
+
+    Iterator begin() 
+    {
+        return Iterator(head);
+    }
+
+    Iterator end() 
+    {
+        return Iterator(nullptr);
+    }
+
+    ConstIterator begin() const 
+    {
+        return ConstIterator(head);
+    }
+
+    ConstIterator end() const 
+    {
+        return ConstIterator(nullptr);
+    }
 };
+
 ```
 
 # main.cpp
@@ -374,5 +429,32 @@ TEST(List, test5)
     l.push(90);
     
     EXPECT_EQ(l.getsize(), 3);
+}
+
+TEST(List, test6)
+{
+    List<int> l;
+    l.push(1);
+    l.push(2);
+    l.push(3);
+
+    int val = 3;
+    for (List<int>::ConstIterator it = l.begin(); it != l.end(); ++it) 
+    {
+        EXPECT_EQ(*it, val);
+        val--;
+    }
+}
+
+TEST(List, test7)
+{
+    List<int> l;
+    l.push(1);
+    l.push(2);
+
+    List<int>::ConstIterator it1 = l.begin();
+    List<int>::ConstIterator it2 = l.begin();
+
+    EXPECT_EQ(it1, it2);
 }
 ```
